@@ -76,6 +76,11 @@ const CustomDrawer:React.FC<IProp> = ({ children }) => {
                     navigate: () => {}
                   },
                   {
+                    label: 'Jobs',
+                    to: '/dashboard/jobs',
+                    navigate: () => {}
+                  },
+                  {
                     label: 'Invoice',
                     to: '/dashboard/invoices',
                     navigate: () => {}

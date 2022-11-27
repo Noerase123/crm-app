@@ -83,6 +83,8 @@ const Invoices:React.FC<any> = () => {
         rows={rows}
         columns={columns}
         create={() => navigate('/dashboard/invoices/create')}
+        view={() => navigate('/dashboard/invoices/123')}
+        isDisabledClientView={false}
       />
     </>
   )

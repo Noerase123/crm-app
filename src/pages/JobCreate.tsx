@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Card, Grid, TextField, Typography } from '@mui/material'
 import { isValidName, isValidNumerical, isValidEmail, isValidPhoneNumber } from '../utils/helpers'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const EmployeeCreate:React.FC<any> = () => {
+const JobCreate:React.FC<any> = () => {
 
   useEffect(() => {
-    ClassicEditor
-      .create( document.getElementById( 'editor' ) as HTMLElement )
-      .then( editor => {
-        let window: any
-        window.editor = editor;
-      } )
-      .catch( error => {
-        console.error( 'There was a problem initializing the editor.', error );
-      } );
+    // ClassicEditor
+    //   .create( document.getElementById( 'editor' ) as HTMLElement )
+    //   .then( editor => {
+    //     let window: any
+    //     window.editor = editor;
+    //   } )
+    //   .catch( error => {
+    //     console.error( 'There was a problem initializing the editor.', error );
+    //   } );
   }, [])
 
 
   const [validation, setValidation] = useState<any>({
-    fullName: {
+    title: {
+      error: false,
+      message: '',
+      value: ''
+    },
+    company: {
       error: false,
       message: '',
       value: ''
@@ -34,7 +39,7 @@ const EmployeeCreate:React.FC<any> = () => {
       message: '',
       value: ''
     },
-    position: {
+    location: {
       error: false,
       message: '',
       value: ''
@@ -48,16 +53,25 @@ const EmployeeCreate:React.FC<any> = () => {
       error: false,
       message: '',
       value: ''
+    },
+    content: {
+      error: false,
+      message: '',
+      value: ''
     }
   })
 
   const testFields = [
     {
-      label: 'Full Name',
-      type: 'fullName'
+      label: 'Job Title',
+      type: 'title'
     },
     {
-      label: 'Email Address',
+      label: 'Company Name',
+      type: 'company'
+    },
+    {
+      label: 'Email',
       type: 'email'
     },
     {
@@ -65,16 +79,20 @@ const EmployeeCreate:React.FC<any> = () => {
       type: 'phoneNumber'
     },
     {
-      label: 'Position',
-      type: 'position'
+      label: 'Location',
+      type: 'location'
     },
     {
-      label: 'Years of Experience',
+      label: 'Years of experience needed',
       type: 'yearsOfExperience'
     },
     {
       label: 'Technologies Used',
       type: 'technologiesUsed'
+    },
+    {
+      label: 'Content',
+      type: 'content'
     }
   ]
 
@@ -85,7 +103,7 @@ const EmployeeCreate:React.FC<any> = () => {
   const validate = ({ fieldType, fieldName }: any) => (e: any) => {
     const value = e.target.value
 
-    if (['position', 'fullName', 'technologiesUsed'].includes(fieldType)) {
+    if (['title', 'company', 'technologiesUsed', 'location'].includes(fieldType)) {
       if (!isValidName(value)) {
         triggerError({ isError: true, field: fieldType, message: `Invalid ${fieldName}`, value })
       } else {
@@ -112,6 +130,8 @@ const EmployeeCreate:React.FC<any> = () => {
       } else {
         triggerError({ isError: false, field: fieldType, message: '', value })
       }
+    } else {
+      triggerError({ isError: false, field: fieldType, message: '', value })
     }
   }
 
@@ -119,7 +139,7 @@ const EmployeeCreate:React.FC<any> = () => {
     <>
       <Box sx={{ p: 2 }}>
         <Typography sx={{ textAlign: 'center', fontWeight: 'bold', fontSize: 20 }}>
-          Register an Employee
+          Post a Job
         </Typography>
       </Box>
       <Grid container sx={{
@@ -193,4 +213,4 @@ const EmployeeCreate:React.FC<any> = () => {
   )
 }
 
-export default EmployeeCreate
+export default JobCreate

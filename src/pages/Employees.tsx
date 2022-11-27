@@ -79,6 +79,8 @@ const Employees:React.FC<any> = () => {
         columns={columns}
         rows={rowData}
         create={() => navigate('/dashboard/employees/create')}
+        view={() => navigate('/dashboard/employees/123')}
+        type={'employee'}
       />
     </>
   )

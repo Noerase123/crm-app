@@ -1,17 +1,32 @@
-import React, { useState } from 'react'
-import { Card, Grid, Typography, Box, Checkbox, IconButton, Input, Pagination, Button } from '@mui/material'
+import React, { useState, useEffect } from 'react'
+import {
+  Card,
+  Grid,
+  Typography,
+  Box,
+  Checkbox,
+  IconButton,
+  Input,
+  Pagination,
+  Button,
+  Tooltip,
+  Container
+} from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
-import PersonRemoveAlt1Icon from '@mui/icons-material/PersonRemoveAlt1'
 import SearchIcon from '@mui/icons-material/Search'
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt'
 import GridViewIcon from '@mui/icons-material/GridView'
 import ViewListIcon from '@mui/icons-material/ViewList'
-import CustomCard from './CustomCard'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+
+import EmployeeCard from './EmployeeCard'
+import JobCard from './JobCard'
 
 const properStyle = {
   textAlign: 'left',
-  width: '15%',
+  width: 100,
   flexGrow: 1
 }
 
@@ -41,15 +56,13 @@ const CustomColumn:React.FC<any> = ({ columns }) => {
               </Grid>
             ))}
             <Grid>
-              <Box sx={{ pl: 5 }}>
-                <IconButton>
-                  <DeleteIcon
-                    sx={{
-                      color: 'red'
-                    }}
-                  />
-                </IconButton>
-              </Box>
+              <IconButton>
+                <DeleteIcon
+                  sx={{
+                    color: 'red'
+                  }}
+                />
+              </IconButton>
             </Grid>
           </Grid>
         </Card>
@@ -58,7 +71,7 @@ const CustomColumn:React.FC<any> = ({ columns }) => {
   )
 }
 
-const CustomRow:React.FC<any> = ({ data, columns }) => {
+const CustomRow:React.FC<any> = ({ data, columns, view }) => {
   return (
     <Grid container spacing={1}>
       {data.map((dt: any, i: any) => (
@@ -79,7 +92,8 @@ const CustomRow:React.FC<any> = ({ data, columns }) => {
                     <Grid key={key} sx={properStyle}>
                       <Box sx={{
                         backgroundColor: 'green',
-                        
+                        width: '50%',
+                        borderRadius: 10
                       }}>
                         <Typography
                           variant='body2'
@@ -116,8 +130,8 @@ const CustomRow:React.FC<any> = ({ data, columns }) => {
                   <IconButton>
                     <EditIcon />
                   </IconButton>
-                  <IconButton>
-                    <PersonRemoveAlt1Icon />
+                  <IconButton onClick={view}>
+                    <RemoveRedEyeIcon />
                   </IconButton>
                 </Box>
               </Grid>
@@ -158,7 +172,7 @@ const CustomPagination:React.FC<any> = () => {
             marginLeft: 3
           }}>
             <Typography variant='caption'>
-              table display:
+              showing:
             </Typography>
             <Typography variant='body1' sx={{ fontWeight: 'bold' }}>
               1-5 of 100
@@ -171,7 +185,16 @@ const CustomPagination:React.FC<any> = () => {
   )
 }
 
-const SearchTab:React.FC<any> = ({ setList, isList, onFocus, onBlur, onCreate }) => {
+const SearchTab:React.FC<any> = ({ setList, isList, onFocus, onBlur, onCreate, onViewClient = true }) => {
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleModal = (val: boolean) => () => setOpenModal(val)
+
+  useEffect(() => {
+    setOpenModal(false)
+  }, [isList])
+
   return (
     <Box>
       <Grid container sx={{ mb: 5 }}>
@@ -202,24 +225,77 @@ const SearchTab:React.FC<any> = ({ setList, isList, onFocus, onBlur, onCreate })
             justifyContent: 'flex-end',
           }}>
             <Box sx={{
-              backgroundColor: '#fff',
-              mx: 5
-            }}>
-              <Button sx={{ borderRadius: 4 }} onClick={onCreate}>
-                <PersonAddAltIcon />
-              </Button>
-            </Box>
-            <Box sx={{
-              display: 'flex',
               backgroundColor: '#fff'
             }}>
-              <Button onClick={() => setList(true)}>
-                <ViewListIcon style={{ color: isList ? '#1976d2' : '#e1e1e1' }} />
-              </Button>
-              <Button onClick={() => setList(false)}>
-                <GridViewIcon style={{ color: !isList ? '#1976d2' : '#e1e1e1' }} />
-              </Button>
+              <Tooltip title="Create new invoice" placement="top">
+                <Button sx={{ borderRadius: 4 }} onClick={onCreate}>
+                  <PersonAddAltIcon />
+                </Button>
+              </Tooltip>
             </Box>
+            <Box sx={{
+              position: 'relative'
+            }}>
+              <Box sx={{
+                backgroundColor: '#fff',
+                ml: 1
+              }}>
+                <Tooltip title="Export file" placement="top">
+                  <Button sx={{ borderRadius: 4 }} onClick={handleModal(!openModal)}>
+                    <MoreVertIcon />
+                  </Button>
+                </Tooltip>
+              </Box>
+              {openModal && (
+                <Box sx={{
+                  position: 'absolute',
+                  bottom: -240,
+                  left: -40,
+                  zIndex: 1
+                }}>
+                  <Box sx={{
+                    backgroundColor: '#fff',
+                    p: 1,
+                    alignContent: 'end'
+                  }}>
+                    <Tooltip title="Export to CSV" placement="left-start">
+                      <Button variant='contained' sx={{ m: 1 }}>
+                        CSV
+                      </Button>
+                    </Tooltip>
+                    <Tooltip title="Export to Excel" placement="left-start">
+                      <Button variant='contained' sx={{ m: 1 }}>
+                        Excel
+                      </Button>
+                    </Tooltip>
+                    <Tooltip title="Export to Print" placement="left-start">
+                      <Button variant='contained' sx={{ m: 1 }}>
+                        Print
+                      </Button>
+                    </Tooltip>
+                    <Tooltip title="Export to PDF" placement="left-start">
+                      <Button variant='contained' sx={{ m: 1 }}>
+                        PDF
+                      </Button>
+                    </Tooltip>
+                  </Box>
+                </Box>
+              )}
+            </Box>
+            {onViewClient && (
+              <Box sx={{
+                display: 'flex',
+                backgroundColor: '#fff',
+                ml: 5
+              }}>
+                <Button onClick={() => setList(true)}>
+                  <ViewListIcon style={{ color: isList ? '#1976d2' : '#e1e1e1' }} />
+                </Button>
+                <Button onClick={() => setList(false)}>
+                  <GridViewIcon style={{ color: !isList ? '#1976d2' : '#e1e1e1' }} />
+                </Button>
+              </Box>
+            )}
           </Box>
         </Grid>
       </Grid>
@@ -227,19 +303,26 @@ const SearchTab:React.FC<any> = ({ setList, isList, onFocus, onBlur, onCreate })
   )
 }
 
-const CardFormat:React.FC<any> = () => {
+const CardFormat:React.FC<any> = ({ type = 'employee' }) => {
   return (
-    <Grid container spacing={2}>
-      {[...new Array(8)].map(dt => (
-        <Grid item xs={3}>
-          <CustomCard />
-        </Grid>
-      ))}
-    </Grid>
+    <Container>
+      <Grid container spacing={2}>
+        {[...new Array(8)].map(dt => (
+          <Grid item xs={6}>
+            {type === 'employee' && (
+              <EmployeeCard />
+            )}
+            {type === 'job' && (
+              <JobCard />
+            )}
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   )
 }
 
-const CustomTable:React.FC<any> = ({ rows, columns, create }) => {
+const CustomTable:React.FC<any> = ({ rows, columns, create, view, isDisabledClientView, type }) => {
 
   const [isList, setList] = useState(true)
   
@@ -256,14 +339,15 @@ const CustomTable:React.FC<any> = ({ rows, columns, create }) => {
           onFocus={onFocus}
           onBlur={onBlur}
           onCreate={create}
+          onViewClient={isDisabledClientView}
         />
         {isList ? (
           <React.Fragment>
             <CustomColumn columns={columns} />
-            <CustomRow data={rows} columns={columns} />
+            <CustomRow data={rows} columns={columns} view={view} />
           </React.Fragment>
         ) : (
-          <CardFormat />
+          <CardFormat type={type} />
         )}
         <CustomPagination />
         {isSearch && (
