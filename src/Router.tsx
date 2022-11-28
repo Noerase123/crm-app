@@ -7,6 +7,8 @@ import {
 
 import AppLayout from './components/AppLayout';
 
+import LandingPage from './pages/LandingPage';
+
 import EmployeeCreate from './pages/EmployeeCreate';
 import EmployeeDetails from './pages/EmployeeDetails';
 import Employees from './pages/Employees';
@@ -29,12 +31,22 @@ const Login:React.FC = () => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Navigate to='/dashboard/employees' />
+    element: (
+      <LandingPage>
+        <>
+          hello world
+        </>
+      </LandingPage>
+    )
   },
   {
     path: "/dashboard",
     element: <AppLayout />,
     children: [
+      {
+        path: '',
+        element: <Navigate to='/dashboard/jobs' />
+      },
       {
         path: 'employees',
         element: <Employees />
