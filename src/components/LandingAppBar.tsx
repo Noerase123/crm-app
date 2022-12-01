@@ -44,7 +44,7 @@ const LandingAppBar:React.FC<IProp> = props => {
             <Container>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Box onClick={() => navigate('/')}>
-                  <Typography variant="h6" component="div">
+                  <Typography variant="h6" component="div" sx={{ '&:hover': { cursor: 'pointer' } }}>
                     ADRIS
                   </Typography>
                 </Box>
@@ -70,7 +70,7 @@ const LandingAppBar:React.FC<IProp> = props => {
                   </Typography> */}
                   <Box onClick={() => navigate('/jobs')}>
                     <Typography variant='h6' sx={{
-                      ml: 4,
+                      ml: 3,
                       py: 0.5,
                       px: 2,
                       borderRadius: 2,
@@ -80,6 +80,21 @@ const LandingAppBar:React.FC<IProp> = props => {
                       }
                     }}>
                       Find Jobs
+                    </Typography>
+                  </Box>
+                  <Box onClick={() => navigate('/new-job')}>
+                    <Typography variant='h6' sx={{
+                      ml: 3,
+                      py: 0.5,
+                      px: 2,
+                      borderRadius: 2,
+                      color: 'rgb(25, 118, 210)',
+                      border: '1px solid rgb(25, 118, 210)',
+                      '&:hover': {
+                        cursor: 'pointer'
+                      }
+                    }}>
+                      Post a Job
                     </Typography>
                   </Box>
                 </Box>

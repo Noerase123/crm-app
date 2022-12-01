@@ -9,6 +9,8 @@ import AppLayout from './components/AppLayout';
 
 import LandingPage from './pages/LandingPage';
 import LandingJobs from './pages/LandingJobs';
+import LandingJobsDetails from './pages/JobDetails';
+import PostJob from './pages/PostJob';
 
 import EmployeeCreate from './pages/EmployeeCreate';
 import EmployeeDetails from './pages/EmployeeDetails';
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
   {
     path: '/jobs',
     element: <LandingJobs />
+  },
+  {
+    path: '/job-details',
+    element: <LandingJobsDetails />
+  },
+  {
+    path: '/new-job',
+    element: <PostJob />
   },
   {
     path: "/dashboard",

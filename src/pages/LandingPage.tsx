@@ -4,8 +4,6 @@ import {
   Grid,
   Button,
   Input,
-  Card,
-  Divider,
   Typography,
   Box,
   Container
@@ -14,16 +12,12 @@ import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import EastOutlinedIcon from '@mui/icons-material/EastOutlined';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOutlined';
 import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 import FlightTakeoffOutlinedIcon from '@mui/icons-material/FlightTakeoffOutlined';
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import JobList from '../components/JobList';
+
+import Footer from '../components/Footer';
 
 const Content:React.FC = () => {
   return (
@@ -232,72 +226,7 @@ const Content:React.FC = () => {
               </Grid>
             </Container>
           </Box>
-          <Box sx={{ backgroundColor: 'rgb(34, 43, 69)' }}>
-            <Container>
-              <Box sx={{ py: 5 }}>
-                <Typography variant='h4' sx={{ mb: 1 }}>Top developer jobs listed in our portal</Typography>
-                <Typography sx={{ color: 'rgb(174, 176, 180)' }}>We get thousands of job postings weekly, but only accept the openings at the top companies.</Typography>
-              </Box>
-              <Grid container spacing={3}>
-                {[...new Array(12)].map((dt, i) => (
-                  <Grid item xs={6} md={4} lg={4} key={i}>
-                    <Card sx={{
-                      p: 2,
-                      backgroundColor: 'rgb(39, 53, 94)',
-                      color: '#fff',
-                      borderRadius: 3,
-                      transition: '0.4s',
-                      boxShadow: 5,
-                      '&:hover': {
-                        borderRight: '5px solid #0081ff',
-                        cursor: 'pointer'
-                      }
-                    }}>
-                      <Box sx={{ display: 'grid', height: 150, alignItems: 'center' }}>
-                        <Typography variant='caption' sx={{ width: 100, textAlign: 'center', backgroundColor: '#0081ff', px: 1, borderRadius: 1 }}>
-                          Programming
-                        </Typography>
-                        <Typography variant='h6'>Web designer internship</Typography>
-                        <Box sx={{ color: 'rgb(174, 176, 180)', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-                          <LocationOnOutlinedIcon sx={{ width: 22, height: 22 }} /> 
-                          <Typography sx={{ ml: 1 }}>
-                            Paris, France
-                          </Typography>
-                        </Box>
-                        <Box sx={{ color: 'rgb(174, 176, 180)', display: 'flex', justifyContent: 'start', alignItems: 'center' }}>
-                          <AccessTimeOutlinedIcon sx={{ width: 22, height: 22 }} />
-                          <Typography sx={{ ml: 1 }}>
-                            Part-time
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-              <Box sx={{ 
-                display: 'flex',
-                justifyContent: 'center'  
-              }}>
-                <Box sx={{
-                  my: 4,
-                  backgroundColor: 'rgb(25, 118, 210)',
-                  px: 2,
-                  py: 1,
-                  borderRadius: 1,
-                  display: 'flex',
-                  justifyContent: 'start',
-                  alignItems: 'center',
-                  '&:hover': {
-                    cursor: 'pointer'
-                  }
-                }}>
-                  <Typography sx={{ mr: 1 }}>View all</Typography>
-                  <EastOutlinedIcon />
-                </Box>
-              </Box>
-            </Container>
-          </Box>
+          <JobList />
           <Box sx={{ backgroundColor: 'rgb(24, 30, 48)' }}>
             <Container sx={{ py: 8 }}>
               <Box sx={{
@@ -431,34 +360,7 @@ const Content:React.FC = () => {
               </Grid>
             </Container>
           </Box>
-          <Box sx={{ backgroundColor: 'rgb(39, 53, 94)' }}>
-            <Divider sx={{ border: '1px solid #e1e1e1' }} />
-            <Container sx={{ py: 8 }}>
-              <Grid container>
-                <Grid item xs={4}>    
-                  <Typography>ADRIS JOBS</Typography>
-                  <Box sx={{ display: 'flex', mt: 3 }}>
-                    <GitHubIcon sx={{ mr: 1 }} />
-                    <InstagramIcon sx={{ mr: 1 }} />
-                    <YouTubeIcon sx={{ mr: 1 }} />
-                    <FacebookIcon sx={{ mr: 1 }} />
-                    <TwitterIcon sx={{ mr: 1 }} />
-                  </Box>
-                </Grid>
-                <Grid item xs={4}>
-                </Grid>
-                <Grid item xs={4}>
-                  <Box sx={{ display: 'grid' }}>
-                    <Typography>COMPANY</Typography>
-                    <Typography variant='caption'>About Us</Typography>
-                    <Typography variant='caption'>Blog</Typography>
-                    <Typography variant='caption'>Contact Us</Typography>
-                    <Typography variant='caption'>Work with Us</Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Container>
-          </Box>
+          <Footer />
         </>
       </LandingAppBar>
     </>
