@@ -9,12 +9,12 @@ import Stepper from '../components/Stepper';
 
 const PostJob:React.FC<any> = () => {
   return (
-    <LandingAppBar>
+    <LandingAppBar currentPage='new-job'>
       <>
         <Box sx={{ backgroundColor: 'rgb(34, 43, 69)' }}>
           <Container sx={{ py: 8 }}>
             <Typography variant='h5' sx={{ fontWeight: 'bold', textAlign: 'center' }}>
-              Post your job ad for just <span style={{ fontSize: 30 }}>$99</span> for the next 3 months!
+              Post your job ad for just <span style={{ fontSize: 30 }}>$49</span> for the next 3 months!
             </Typography>
             <Typography sx={{ color: 'rgb(174, 176, 180)', textAlign: 'center', px: 20 }}>
               Share your job ad with 50,000+ remote JavaScript developers that are searching for new opportunities. It will be featured in a yellow box at the top of the job list and featured in our weekly newsletter.

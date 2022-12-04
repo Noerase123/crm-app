@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom'
 interface IProp {
   window?: () => Window
   children: React.ReactElement
+  currentPage?: string
 }
 
 function HideOnScroll(props: IProp) {
@@ -68,35 +69,39 @@ const LandingAppBar:React.FC<IProp> = props => {
                   }}>
                     About Us
                   </Typography> */}
-                  <Box onClick={() => navigate('/jobs')}>
-                    <Typography variant='h6' sx={{
-                      ml: 3,
-                      py: 0.5,
-                      px: 2,
-                      borderRadius: 2,
-                      backgroundColor: 'rgb(25, 118, 210)',
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}>
-                      Find Jobs
-                    </Typography>
-                  </Box>
-                  <Box onClick={() => navigate('/new-job')}>
-                    <Typography variant='h6' sx={{
-                      ml: 3,
-                      py: 0.5,
-                      px: 2,
-                      borderRadius: 2,
-                      color: 'rgb(25, 118, 210)',
-                      border: '1px solid rgb(25, 118, 210)',
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}>
-                      Post a Job
-                    </Typography>
-                  </Box>
+                  {props.currentPage !== 'jobs' && (
+                    <Box onClick={() => navigate('/jobs')}>
+                      <Typography variant='h6' sx={{
+                        ml: 3,
+                        py: 0.5,
+                        px: 2,
+                        borderRadius: 2,
+                        backgroundColor: 'rgb(25, 118, 210)',
+                        '&:hover': {
+                          cursor: 'pointer'
+                        }
+                      }}>
+                        Find Jobs
+                      </Typography>
+                    </Box>
+                  )}
+                  {props.currentPage !== 'new-job' && (
+                    <Box onClick={() => navigate('/new-job')}>
+                      <Typography variant='h6' sx={{
+                        ml: 3,
+                        py: 0.5,
+                        px: 2,
+                        borderRadius: 2,
+                        color: 'rgb(25, 118, 210)',
+                        border: '1px solid rgb(25, 118, 210)',
+                        '&:hover': {
+                          cursor: 'pointer'
+                        }
+                      }}>
+                        Post a Job
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
               </Box>
             </Container>
