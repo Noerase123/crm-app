@@ -16,36 +16,38 @@ const PostJob:React.FC<any> = () => {
             <Typography variant='h5' sx={{ fontWeight: 'bold', textAlign: 'center' }}>
               Post your job ad for just <span style={{ fontSize: 30 }}>$49</span> for the next 3 months!
             </Typography>
-            <Typography sx={{ color: 'rgb(174, 176, 180)', textAlign: 'center', px: 20 }}>
-              Share your job ad with 50,000+ remote JavaScript developers that are searching for new opportunities. It will be featured in a yellow box at the top of the job list and featured in our weekly newsletter.
-            </Typography>
+            <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Grid item xs={12} md={9} lg={8}>
+                <Typography sx={{ color: 'rgb(174, 176, 180)', textAlign: 'center' }}>
+                  Share your job ad with 50,000+ remote JavaScript developers that are searching for new opportunities. It will be featured in a yellow box at the top of the job list and featured in our weekly newsletter.
+                </Typography>
+              </Grid>
+            </Grid>
             <Box sx={{ mt: 12 }}>
-              <Card sx={{ py: 5, px: 15, backgroundColor: '#f1f1f1', color: '#000', boxShadow: 1 }}>
+              <Card sx={{ py: 5, px: 5, backgroundColor: '#f1f1f1', color: '#000', boxShadow: 1 }}>
                 <Typography variant='h4' sx={{ fontWeight: '600', mb: 3 }}>Tell us about your job</Typography>
                 <Stepper
                   steps={['About the job', 'Preview', 'Payment']}
                   stepContainers={[
                     <>
-                      <Box sx={{ my: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                        <TextField
-                          label='Job title'
-                          helperText='Example: Senior Software Engineer'
-                          size='small'
-                          sx={{ width: '60%' }}
-                          fullWidth
-                        />
-                        <Typography>REQUIRED FIELDS <span style={{ color: 'red' }}>*</span></Typography>
-                      </Box>
-                      <Box sx={{ width: '60%' }}>
-                        <Box sx={{ my: 1 }}>
+                      <Grid container spacing={3}>
+                        <Grid item xs={12} md={8} lg={6}>
+                          <TextField
+                            label='Job title'
+                            helperText='Example: Senior Software Engineer'
+                            size='small'
+                            fullWidth
+                          />
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={6}>
                           <TextField
                             label='Candidate region'
                             helperText='Optional: if you need the candidate to be in a particular location and timezone'
                             size='small'
                             fullWidth
                           />
-                        </Box>
-                        <Box sx={{ my: 2 }}>
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={6}>
                           <FormControl size='small' fullWidth>
                             <InputLabel>Job Type</InputLabel>
                             <Select
@@ -59,8 +61,8 @@ const PostJob:React.FC<any> = () => {
                               <MenuItem value={30}>Internship</MenuItem>
                             </Select>
                           </FormControl>
-                        </Box>
-                        <Box sx={{ my: 2 }}>
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={6}>
                           <FormControl size='small' fullWidth>
                             <InputLabel>Experience</InputLabel>
                             <Select
@@ -74,84 +76,82 @@ const PostJob:React.FC<any> = () => {
                               <MenuItem value={30}>Senior (5 - 10 yrs)</MenuItem>
                             </Select>
                           </FormControl>
-                        </Box>
-                      </Box>
-                      <Box sx={{ my: 2 }}>
-                        <Typography>Select Programming Technologies</Typography>
-                        <Box sx={{ mt: 1, border: '1px solid #000', p: 1 }}>
-                          <Grid container spacing={2}>
-                            {[
-                              'ReactJS',
-                              'Angular',
-                              'Vue.js',
-                              'Node.js',
-                              'Javascript',
-                              'Typescript',
-                              'Svetle',
-                              'Java',
-                              'Kotlin',
-                              'PHP',
-                              'Bash',
-                              'Swift',
-                              'Python',
-                              'Ruby',
-                              'C#',
-                              'C++',
-                              'Objective-C',
-                              'Rust',
-                              'Flutter',
-                              'Dart'
-                            ].map((dt, i) => (
-                              <Grid item>
-                                <Box key={i} sx={{ display: 'flex', alignItems: 'center' }}>
-                                  <Checkbox />
-                                  <Typography>
-                                    {dt}
-                                  </Typography>
-                                </Box>
-                              </Grid>
-                            ))}
-                          </Grid>
-                        </Box>
-                      </Box>
-                      <Box sx={{ width: '60%' }}>
-                        <Box sx={{ my: 1 }}>
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Typography>Select Programming Technologies</Typography>
+                          <Box sx={{ mt: 1, border: '1px solid #000', p: 1 }}>
+                            <Grid container spacing={2}>
+                              {[
+                                'ReactJS',
+                                'Angular',
+                                'Vue.js',
+                                'Node.js',
+                                'Javascript',
+                                'Typescript',
+                                'Svetle',
+                                'Java',
+                                'Kotlin',
+                                'PHP',
+                                'Bash',
+                                'Swift',
+                                'Python',
+                                'Ruby',
+                                'C#',
+                                'C++',
+                                'Objective-C',
+                                'Rust',
+                                'Flutter',
+                                'Dart'
+                              ].map((dt, i) => (
+                                <Grid item>
+                                  <Box key={i} sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <Checkbox />
+                                    <Typography>
+                                      {dt}
+                                    </Typography>
+                                  </Box>
+                                </Grid>
+                              ))}
+                            </Grid>
+                          </Box>
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={6}>
                           <TextField
                             label='Company name'
                             helperText='Enter your company or organizations name'
                             size='small'
                             fullWidth
                           />
-                        </Box>
-                        <Box sx={{ my: 1 }}>
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={6}>
                           <TextField
                             label='Email'
                             helperText='Enter your email address'
                             size='small'
                             fullWidth
                           />
-                        </Box>
-                        <Box sx={{ my: 1 }}>
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={12}>
                           <TextField
                             label='Apply job URL'
                             helperText='Enter your application link to your website'
                             size='small'
                             fullWidth
                           />
-                        </Box>
-                        <Box sx={{ my: 1 }}>
+                        </Grid>
+                        <Grid item xs={12} md={8} lg={7}>
                           <TextField
                             label='Job description'
                             multiline
                             rows={15}
                             fullWidth
                           />
-                        </Box>
-                      </Box>
+                        </Grid>
+                      </Grid>
                     </>,
                     <>
                       <Typography variant='h2'>
-                        Hello world
+                        Preview
                       </Typography>
                     </>,
                     <>

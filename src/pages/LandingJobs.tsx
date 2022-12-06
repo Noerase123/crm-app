@@ -14,7 +14,7 @@ const LandingJobs:React.FC<any> = () => {
         <Box sx={{ backgroundColor: 'rgb(39, 53, 94)' }}>
           <Container sx={{ py: 8 }}>
             <Grid container spacing={3}>
-              <Grid item xs={3}>
+              <Grid item xs={12} md={4} lg={3}>
                 <Card sx={{ p: 2, color: '#000', backgroundColor: '#fff', boxShadow: 3 }}>
                   <Typography>Filter your search</Typography>
                   <Box sx={{ my: 2 }}>
@@ -90,7 +90,7 @@ const LandingJobs:React.FC<any> = () => {
                   </Box>
                 </Card>
               </Grid>
-              <Grid item xs={9}>
+              <Grid item xs={12} md={8} lg={9}>
                 <Box sx={{
                   display: 'flex',
                   justifyContent: 'start',
@@ -103,7 +103,7 @@ const LandingJobs:React.FC<any> = () => {
                   <SearchOutlinedIcon />
                   <Input size='small' type='text' placeholder='Search by job keywords, category, location' style={{ color: '#fff', border: 'none', padding: 10, backgroundColor: 'rgb(24, 30, 48)', width: '100%'}} />
                 </Box>
-                <Card sx={{ mb: 3, p: 3, backgroundColor: 'rgb(34, 43, 69)', boxShadow: 3 }}>
+                <Card sx={{ mb: 3, p: 2, backgroundColor: 'rgb(34, 43, 69)', boxShadow: 3 }}>
                   <Container>
                     <Grid container spacing={2}>
                       {[...new Array(5)].map(dt => (

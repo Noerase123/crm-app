@@ -52,6 +52,7 @@ const LandingAppBar:React.FC<IProp> = props => {
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Box onClick={() => navigate('/')}>
                     <Typography variant='h6' sx={{
+                      fontSize: 16,
                       '&:hover': {
                         borderBottom: '1px solid #e1e1e1',
                         cursor: 'pointer'
@@ -74,9 +75,11 @@ const LandingAppBar:React.FC<IProp> = props => {
                       <Typography variant='h6' sx={{
                         ml: 3,
                         py: 0.5,
-                        px: 2,
+                        px: 1,
                         borderRadius: 2,
                         backgroundColor: 'rgb(25, 118, 210)',
+                        textAlign: 'center',
+                        fontSize: 16,
                         '&:hover': {
                           cursor: 'pointer'
                         }
@@ -90,9 +93,11 @@ const LandingAppBar:React.FC<IProp> = props => {
                       <Typography variant='h6' sx={{
                         ml: 3,
                         py: 0.5,
-                        px: 2,
+                        px: 1,
                         borderRadius: 2,
                         color: 'rgb(25, 118, 210)',
+                        textAlign: 'center',
+                        fontSize: 16,
                         border: '1px solid rgb(25, 118, 210)',
                         '&:hover': {
                           cursor: 'pointer'
