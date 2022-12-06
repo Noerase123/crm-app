@@ -1,6 +1,7 @@
 // import { Provider } from 'react-redux'
 // import { HelmetProvider } from 'react-helmet-async'
 // import { BrowserRouter } from 'react-router-dom'
+import './App.css'
 import Router from './Router'
 
 // const store: any = null
