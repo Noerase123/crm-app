@@ -30,9 +30,11 @@ const LandingJobsDetails:React.FC<any> = () => {
                       cursor: 'pointer'
                     }
                   }}>
-                    <Typography>
-                      Apply now
-                    </Typography>
+                    <a href='#applyforthisjob' style={{ color: '#fff', textDecoration: 'none' }}>
+                      <Typography>
+                        Apply now
+                      </Typography>
+                    </a>
                   </Box>
                   <Box sx={{
                     border: '1px solid rgb(25, 118, 210)',
@@ -85,19 +87,21 @@ const LandingJobsDetails:React.FC<any> = () => {
                 </Box>
               </Grid>
               <Grid item xs={12} md={4} lg={4}>
-                <Box sx={{ p: 3, backgroundColor: 'rgb(25, 118, 210)', borderRadius: 2 }}>
-                  <Typography>You like what you're reading?</Typography>
-                  <Typography>Get free online programming tips and resources delivered directly to your inbox</Typography>
-                </Box>
-                <Box sx={{ p: 3, backgroundColor: 'rgb(34, 43, 69)', borderRadius: 2, boxShadow: 1, mt: 3 }}>
-                  <Typography>Interactive decision support system</Typography>
+                <Box id='btnReferral'>
+                  <Box sx={{ p: 3, backgroundColor: 'rgb(25, 118, 210)', borderRadius: 2 }}>
+                    <Typography>You like what you're reading?</Typography>
+                    <Typography>Get free online programming tips and resources delivered directly to your inbox</Typography>
+                  </Box>
+                  <Box sx={{ p: 3, backgroundColor: 'rgb(34, 43, 69)', borderRadius: 2, boxShadow: 1, mt: 3 }}>
+                    <Typography>Interactive decision support system</Typography>
+                  </Box>
                 </Box>
               </Grid>
             </Grid>
           </Container>
         </Box>
         <Box sx={{ backgroundColor: 'rgb(34, 43, 69)' }}>
-          <Container sx={{ py: 8 }}>
+          <Container id='applyforthisjob' sx={{ py: 8 }}>
             <Typography variant='h5' sx={{ fontWeight: 'bold', textAlign: 'center' }}>Apply for this job</Typography>
             <Typography sx={{ color: 'rgb(174, 176, 180)', textAlign: 'center' }}>
               We develop intelligent solutions for companies to reduce their operational costs, increase their profitability and improve service quality.

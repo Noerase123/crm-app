@@ -61,19 +61,22 @@ const JobList:React.FC = () => {
           display: 'flex',
           justifyContent: 'center'  
         }}>
-          <Box sx={{
-            my: 4,
-            backgroundColor: 'rgb(25, 118, 210)',
-            px: 2,
-            py: 1,
-            borderRadius: 1,
-            display: 'flex',
-            justifyContent: 'start',
-            alignItems: 'center',
-            '&:hover': {
-              cursor: 'pointer'
-            }
-          }}>
+          <Box
+            sx={{
+              my: 4,
+              backgroundColor: 'rgb(25, 118, 210)',
+              px: 2,
+              py: 1,
+              borderRadius: 1,
+              display: 'flex',
+              justifyContent: 'start',
+              alignItems: 'center',
+              '&:hover': {
+                cursor: 'pointer'
+              }
+            }}  
+            onClick={() => navigate('/jobs')}
+          >
             <Typography sx={{ mr: 1 }}>View all</Typography>
             <EastOutlinedIcon />
           </Box>

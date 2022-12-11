@@ -40,9 +40,7 @@ const PostJob:React.FC<any> = () => {
   const isReadySubmit = (validation: any) => isForSubmit(validation)
 
   useEffect(() => {
-    console.log('trigger ckeditor')
-    ClassicEditor
-      .create( document.getElementById('editor') as HTMLElement )
+    ClassicEditor.create( document.getElementById('editor') as HTMLElement )
       .then( editor => {
         let window: any
         window.editor = editor;
@@ -175,12 +173,12 @@ const PostJob:React.FC<any> = () => {
       label: 'Apply job URL',
       hint: 'Enter your application link to your website'
     },
-    {
-      type: 'textField',
-      name: 'description',
-      label: 'Job description',
-      hint: 'Enter description of the job minimum of 100 characters'
-    },
+    // {
+    //   type: 'textField',
+    //   name: 'description',
+    //   label: 'Job description',
+    //   hint: 'Enter description of the job minimum of 100 characters'
+    // },
     {
       type: 'ckeditor',
       name: 'description',
@@ -270,7 +268,7 @@ const PostJob:React.FC<any> = () => {
                               <Grid item xs={12}>
                                 <Typography>{field.label}</Typography>
                                 <Box sx={{ mt: 1, border: '1px solid #000', p: 1 }}>
-                                  <span id='editor'></span>
+                                  <input id='editor' onChange={(e: any) => console.log('ckeditor', e)} />
                                 </Box>
                               </Grid>
                             )}

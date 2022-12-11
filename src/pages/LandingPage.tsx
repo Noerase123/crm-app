@@ -1,5 +1,6 @@
 import * as React from 'react';
 import LandingAppBar from '../components/LandingAppBar';
+import { useNavigate } from 'react-router-dom';
 import {
   Grid,
   Button,
@@ -15,11 +16,16 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOutlined';
 import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 import FlightTakeoffOutlinedIcon from '@mui/icons-material/FlightTakeoffOutlined';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import JobList from '../components/JobList';
 
 import Footer from '../components/Footer';
 
 const Content:React.FC = () => {
+  const navigate = useNavigate()
+
+  const alertWarning = () => window.alert('Unavailable at the moment')
+
   return (
     <>
       <LandingAppBar>
@@ -40,34 +46,40 @@ const Content:React.FC = () => {
                       display: 'flex',
                       justifyContent: 'flex-start'
                     }}>
-                      <Button sx={{
-                        backgroundColor: 'rgb(25, 118, 210)',
-                        color: '#fff',
-                        px: 2,
-                        py: 1,
-                        my: 2,
-                        '&:hover': {
-                          backgroundColor: 'rgb(25, 118, 210)'
-                        }
-                      }}>
+                      <Button
+                        sx={{
+                          backgroundColor: 'rgb(25, 118, 210)',
+                          color: '#fff',
+                          px: 2,
+                          py: 1,
+                          my: 2,
+                          '&:hover': {
+                            backgroundColor: 'rgb(25, 118, 210)'
+                          }
+                        }}
+                        onClick={() => navigate('/jobs')}
+                      >
                         <Typography>
                           Explore
                         </Typography>
                       </Button>
-                      <Box sx={{
-                        ml: 1,
-                        color: 'rgb(25, 118, 210)',
-                        px: 2,
-                        py: 1,
-                        my: 2,
-                        borderRadius: 1,
-                        display: 'flex',
-                        '&:hover': {
-                          cursor: 'pointer',
-                          backgroundColor: 'rgb(25, 118, 210)',
-                          color: '#fff'
-                        }
-                      }}>
+                      <Box
+                        sx={{
+                          ml: 1,
+                          color: 'rgb(25, 118, 210)',
+                          px: 2,
+                          py: 1,
+                          my: 2,
+                          borderRadius: 1,
+                          display: 'flex',
+                          '&:hover': {
+                            cursor: 'pointer',
+                            backgroundColor: 'rgb(25, 118, 210)',
+                            color: '#fff'
+                          }
+                        }}
+                        onClick={() => alertWarning()}
+                      >
                         <PlayCircleOutlinedIcon sx={{ mr: 1 }} />
                         <Typography>
                           Watch the video
@@ -157,18 +169,21 @@ const Content:React.FC = () => {
                   <Typography variant='h4' sx={{ fontWeight: 'bold', textAlign: 'center' }}>Our process to find you a new job is fast</Typography>
                   <Typography variant='h6' sx={{ px: 9, textAlign: 'center' }}>Fill out our standardized application on our platform. Most applicants finish in under an hour.</Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}>
-                    <Box sx={{
-                      backgroundColor: 'rgb(25, 118, 210)',
-                      px: 2,
-                      py: 1,
-                      borderRadius: 1,
-                      display: 'flex',
-                      justifyContent: 'start',
-                      alignItems: 'center',
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}>
+                    <Box
+                      sx={{
+                        backgroundColor: 'rgb(25, 118, 210)',
+                        px: 2,
+                        py: 1,
+                        borderRadius: 1,
+                        display: 'flex',
+                        justifyContent: 'start',
+                        alignItems: 'center',
+                        '&:hover': {
+                          cursor: 'pointer'
+                        }
+                      }}
+                      onClick={() => navigate('/jobs')}
+                    >
                       <Typography sx={{ mr: 1 }}>Start searching</Typography>
                       <EastOutlinedIcon />
                     </Box>
@@ -272,34 +287,40 @@ const Content:React.FC = () => {
                   display: 'flex',
                   justifyContent: 'center'
                 }}>
-                  <Button sx={{
-                    backgroundColor: 'rgb(25, 118, 210)',
-                    color: '#fff',
-                    px: 2,
-                    py: 1,
-                    my: 2,
-                    '&:hover': {
-                      backgroundColor: 'rgb(25, 118, 210)'
-                    }
-                  }}>
+                  <Button
+                    sx={{
+                      backgroundColor: 'rgb(25, 118, 210)',
+                      color: '#fff',
+                      px: 2,
+                      py: 1,
+                      my: 2,
+                      '&:hover': {
+                        backgroundColor: 'rgb(25, 118, 210)'
+                      }
+                    }}
+                    onClick={() => navigate('/jobs')}
+                  >
                     <Typography>
                       Explore
                     </Typography>
                   </Button>
-                  <Box sx={{
-                    ml: 1,
-                    color: 'rgb(25, 118, 210)',
-                    px: 2,
-                    py: 1,
-                    my: 2,
-                    borderRadius: 1,
-                    display: 'flex',
-                    '&:hover': {
-                      cursor: 'pointer',
-                      backgroundColor: 'rgb(25, 118, 210)',
-                      color: '#fff'
-                    }
-                  }}>
+                  <Box
+                    sx={{
+                      ml: 1,
+                      color: 'rgb(25, 118, 210)',
+                      px: 2,
+                      py: 1,
+                      my: 2,
+                      borderRadius: 1,
+                      display: 'flex',
+                      '&:hover': {
+                        cursor: 'pointer',
+                        backgroundColor: 'rgb(25, 118, 210)',
+                        color: '#fff'
+                      }
+                    }}
+                    onClick={() => alertWarning()}
+                  >
                     <PlayCircleOutlinedIcon sx={{ mr: 1 }} />
                     <Typography>
                       Watch the video
@@ -353,7 +374,7 @@ const Content:React.FC = () => {
                           color: '#fff'
                         }}
                       />
-                      <SearchOutlinedIcon sx={{ ml: -5 }} />
+                      <NotificationsNoneIcon sx={{ ml: -5 }} />
                     </Box>
                   </Box>
                 </Grid>
