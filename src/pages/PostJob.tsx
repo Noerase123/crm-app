@@ -210,9 +210,9 @@ const PostJob:React.FC<any> = () => {
                   steps={['About the job', 'Preview', 'Payment']}
                   stepContainers={[
                     <>
-                      <Typography variant='h2' sx={{ pb: 8, textAlign: 'center' }}>
+                      {/* <Typography variant='h2' sx={{ pb: 8, textAlign: 'center' }}>
                         About the job
-                      </Typography>
+                      </Typography> */}
                       <Grid container spacing={3}>
                         {fields.map((field, index) => (
                           <>
@@ -277,9 +277,9 @@ const PostJob:React.FC<any> = () => {
                       </Grid>
                     </>,
                     <>
-                      <Typography variant='h2' sx={{ textAlign: 'center' }}>
+                      {/* <Typography variant='h2' sx={{ textAlign: 'center' }}>
                         Preview
-                      </Typography>
+                      </Typography> */}
                       <Container sx={{ py: 8 }}>
                         <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
                           <Grid item xs={12} md={6} lg={6}>
@@ -340,9 +340,9 @@ const PostJob:React.FC<any> = () => {
                       </Container>
                     </>,
                     <>
-                      <Typography variant='h2' sx={{ textAlign: 'center' }}>
+                      {/* <Typography variant='h2' sx={{ textAlign: 'center' }}>
                         Payment
-                      </Typography>
+                      </Typography> */}
                       <Box sx={{ p: 5 }}>
                         <Payment />
                       </Box>
