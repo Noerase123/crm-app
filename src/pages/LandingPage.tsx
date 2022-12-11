@@ -113,13 +113,17 @@ const Content:React.FC = () => {
               </Grid>
             </Container>
           </Box>
-          <Box sx={{
+          {/* <Box sx={{
             backgroundColor: 'rgb(34, 43, 69)',
             width: '100%',
             height: 150,
             borderRadius: 2000,
             mt: -10
-          }} />
+          }} /> */}
+          <img
+            src={require('../assets/curve.svg').default}
+            alt='waves'
+          />
           <Grid container>
             <Grid item xs={12}>
               <Box sx={{
