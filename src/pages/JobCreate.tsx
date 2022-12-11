@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Box, Card, Grid, TextField, Typography } from '@mui/material'
 import { isValidName, isValidNumerical, isValidEmail, isValidPhoneNumber } from '../utils/helpers'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import useValidation, { isForSubmit } from '../hooks/useValidation'
 
 const JobCreate:React.FC<any> = () => {
 
@@ -17,49 +18,16 @@ const JobCreate:React.FC<any> = () => {
     //   } );
   }, [])
 
-
-  const [validation, setValidation] = useState<any>({
-    title: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    company: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    email: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    phoneNumber: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    location: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    yearsOfExperience: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    technologiesUsed: {
-      error: false,
-      message: '',
-      value: ''
-    },
-    content: {
-      error: false,
-      message: '',
-      value: ''
-    }
-  })
+  const [validation, setValidation] = useValidation([
+    'title',
+    'company',
+    'email',
+    'phoneNumber',
+    'location',
+    'yearsOfExperience',
+    'technologiesUsed',
+    'content'
+  ])
 
   const testFields = [
     {
@@ -96,7 +64,7 @@ const JobCreate:React.FC<any> = () => {
     }
   ]
 
-  const isReadySubmit = [...Object.values(validation)].every((data: any) => data.error === false && data.value !== '')
+  const isReadySubmit = (validation: any) => isForSubmit(validation)
 
   const triggerError = ({isError, field, message, value}: any) => setValidation({ ...validation, [field]: { error: isError, message, value } })
 

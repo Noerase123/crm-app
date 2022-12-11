@@ -27,3 +27,8 @@ export const isValidNumerical = (value: string) => {
   const pattern = /[a-zA-Z]+/g
   return !pattern.test(value)
 }
+
+export const isValidURL = (value: string) => {
+  const pattern = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/g
+  return pattern.test(value)
+}

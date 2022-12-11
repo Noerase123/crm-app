@@ -9,9 +9,10 @@ import Typography from '@mui/material/Typography';
 interface IProp {
   steps: string[]
   stepContainers: any[]
+  isReadySubmit: boolean
 }
 
-const HorizontalLinearStepper:React.FC<IProp> = ({ steps, stepContainers }) => {
+const HorizontalLinearStepper:React.FC<IProp> = ({ steps, stepContainers, isReadySubmit }) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
 
@@ -103,7 +104,8 @@ const HorizontalLinearStepper:React.FC<IProp> = ({ steps, stepContainers }) => {
               color="inherit"
               disabled={activeStep === 0}
               onClick={handleBack}
-              sx={{ mr: 1 }}
+              sx={{ mr: 1, borderRadius: 10 }}
+              variant='contained'
             >
               Back
             </Button>
@@ -113,7 +115,12 @@ const HorizontalLinearStepper:React.FC<IProp> = ({ steps, stepContainers }) => {
                 Skip
               </Button>
             )} */}
-            <Button onClick={handleNext}>
+            <Button
+              variant='contained'
+              onClick={handleNext}
+              disabled={!isReadySubmit}
+              sx={{ borderRadius: 10 }}
+            >
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
           </Box>

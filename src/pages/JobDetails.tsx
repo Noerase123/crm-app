@@ -7,54 +7,56 @@ import Footer from '../components/Footer';
 
 const LandingJobsDetails:React.FC<any> = () => {
   return (
-    <LandingAppBar>
+    <LandingAppBar currentPage='jobs'>
       <>
         <Box sx={{ backgroundColor: 'rgb(39, 53, 94)' }}>
           <Container sx={{ py: 8 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-              <Box>
+            <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+              <Grid item xs={12} md={6} lg={6}>
                 <Typography variant='h4'>
                   Senior Software Engineer
                 </Typography>
                 <Typography>
                   San Francisco, CA - Full time
                 </Typography>
-              </Box>
-              <Box sx={{ display: 'flex' }}>
-                <Box sx={{
-                  backgroundColor: 'rgb(25, 118, 210)',
-                  p: 2,
-                  borderRadius: 2,
-                  '&:hover': {
-                    cursor: 'pointer'
-                  }
-                }}>
-                  <Typography>
-                    Apply now
-                  </Typography>
+              </Grid>
+              <Grid item xs={12} md={6} lg={6}>
+                <Box id='btnReferral' sx={{ display: 'flex', justifyContent: 'end' }}>
+                  <Box sx={{
+                    backgroundColor: 'rgb(25, 118, 210)',
+                    p: 2,
+                    borderRadius: 2,
+                    '&:hover': {
+                      cursor: 'pointer'
+                    }
+                  }}>
+                    <Typography>
+                      Apply now
+                    </Typography>
+                  </Box>
+                  <Box sx={{
+                    border: '1px solid rgb(25, 118, 210)',
+                    color: 'rgb(25, 118, 210)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    p: 2,
+                    ml: 2,
+                    borderRadius: 2,
+                    '&:hover': {
+                      cursor: 'pointer'
+                    }
+                  }}>
+                    <Typography>
+                      Refer a friend
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box sx={{
-                  border: '1px solid rgb(25, 118, 210)',
-                  color: 'rgb(25, 118, 210)',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  p: 2,
-                  ml: 2,
-                  borderRadius: 2,
-                  '&:hover': {
-                    cursor: 'pointer'
-                  }
-                }}>
-                  <Typography>
-                    Refer a friend
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
+              </Grid>
+            </Grid>
             <Divider sx={{ my: 4, backgroundColor: 'gray' }} />
             <Grid container spacing={3}>
-              <Grid item sx={{ width: '72%' }}>
+              <Grid item xs={12} md={8} lg={8}>
                 <Box>
                   <Typography variant='h5' sx={{ fontWeight: '600', mb: 1 }}>Who we are</Typography>
                   <Typography sx={{ mb: 1, lineHeight: 1.6 }}>
@@ -82,7 +84,7 @@ const LandingJobsDetails:React.FC<any> = () => {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item sx={{ width: '28%' }}>
+              <Grid item xs={12} md={4} lg={4}>
                 <Box sx={{ p: 3, backgroundColor: 'rgb(25, 118, 210)', borderRadius: 2 }}>
                   <Typography>You like what you're reading?</Typography>
                   <Typography>Get free online programming tips and resources delivered directly to your inbox</Typography>
@@ -102,19 +104,19 @@ const LandingJobsDetails:React.FC<any> = () => {
             </Typography>
             <Box sx={{ mt: 3 }}>
               <Grid container spacing={2}>
-                <Grid item xs={9}>
+                <Grid item xs={12} md={3} lg={3}>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgb(25, 118, 210)', borderRadius: 2, border: '1px solid rgb(25, 118, 210)', p: 2, width: '100%', '&:hover': { backgroundColor: 'rgb(25, 118, 210)', color: '#fff' } }}>
+                    <UploadIcon id='upload-icon' />
+                    <Typography>Upload CV</Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={9} lg={9}>
                   <Input
                     sx={{ border: '1px solid #e1e1e1', color: '#fff', borderRadius: 2, p: 2 }}
                     placeholder='Your e-mail address'
                     size='small'
                     fullWidth
                   />
-                </Grid>
-                <Grid item xs={3}>
-                  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgb(25, 118, 210)', borderRadius: 2, border: '1px solid rgb(25, 118, 210)', p: 2, width: '100%', '&:hover': { backgroundColor: 'rgb(25, 118, 210)', color: '#fff' } }}>
-                    <UploadIcon />
-                    <Typography>Upload CV</Typography>
-                  </Box>
                 </Grid>
               </Grid>
               <Input
