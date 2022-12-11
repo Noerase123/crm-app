@@ -10,6 +10,7 @@ import Footer from '../components/Footer';
 import Stepper from '../components/Stepper';
 import useValidation, { isForSubmit } from '../hooks/useValidation';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Payment from '../view/Payment';
 
 const PostJob:React.FC<any> = () => {
   const [value, setValue] = useState<any>({
@@ -50,12 +51,6 @@ const PostJob:React.FC<any> = () => {
         console.error( 'There was a problem initializing the editor.', error );
       } );
   }, [])
-
-  useEffect(() => {
-    if (validation) {
-      console.log('validation', validation)
-    }
-  }, [validation])
 
   const validate = (field: any, label: string) => (e: any) => {
     const value = e.target.value
@@ -350,6 +345,9 @@ const PostJob:React.FC<any> = () => {
                       <Typography variant='h2'>
                         Payment
                       </Typography>
+                      <Box sx={{ p: 5 }}>
+                        <Payment />
+                      </Box>
                     </>,
                     <>
                       <Typography variant='h2'>

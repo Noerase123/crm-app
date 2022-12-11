@@ -94,6 +94,10 @@ const LandingJobs:React.FC<any> = () => {
               </Grid>
               <Grid item xs={12} md={8} lg={9}>
                 <Box sx={{
+                  position: 'sticky',
+                  top: 0,
+                  left: 0,
+                  right: 0,
                   display: 'flex',
                   justifyContent: 'start',
                   alignItems: 'center',
