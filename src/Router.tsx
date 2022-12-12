@@ -23,13 +23,7 @@ import Invoices from './pages/Invoices';
 import Jobs from './pages/Jobs';
 import JobCreate from './pages/JobCreate';
 
-const Login:React.FC = () => {
-  return (
-    <div>
-      <p>Login Page</p>
-    </div>
-  )
-}
+import Login from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -49,12 +43,20 @@ const router = createBrowserRouter([
     element: <PostJob />
   },
   {
+    path: '/auth',
+    element: <Navigate to='/auth/login' />
+  },
+  {
+    path: "/auth/login",
+    element: <Login />
+  },
+  {
     path: "/dashboard",
     element: <AppLayout />,
     children: [
       {
         path: '',
-        element: <Navigate to='/dashboard/jobs' />
+        element: <Navigate to='/auth' />
       },
       {
         path: 'employees',
@@ -89,11 +91,7 @@ const router = createBrowserRouter([
         element: <JobCreate />
       }
     ]
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
+  }
 ]);
 
 const Router = () => {

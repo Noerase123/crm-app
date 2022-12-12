@@ -110,8 +110,37 @@ const LandingJobs:React.FC<any> = () => {
                   <Input size='small' type='text' placeholder='Search by job keywords, category, location' style={{ color: '#fff', border: 'none', padding: 10, backgroundColor: 'rgb(24, 30, 48)', width: '100%'}} />
                 </Box>
                 <Card sx={{ mb: 3, backgroundColor: 'rgb(34, 43, 69)', boxShadow: 3 }}>
+                  <Typography variant='body2' sx={{ color: '#fff', mb: 1, position: 'sticky', top: 0, left: 0, right: 0 }}>Recently Added</Typography>
                   <Grid container spacing={2}>
-                    {[...new Array(5)].map(dt => (
+                    {[...new Array(3)].map(dt => (
+                      <Grid item xs={12}>
+                        <Card sx={{ p: 2, backgroundColor: '#FDFFD5' }} onClick={() => navigate('/job-details')}>
+                          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <Box sx={{ display: 'flex' }}>
+                              <img
+                                src={require('../assets/team-player.svg').default}
+                                alt='find-job'
+                                style={{ height: 50, width: 50 }}
+                              />
+                              <Box sx={{ ml: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                <Typography>Accenture Inc.</Typography>
+                                <Typography variant='h6' sx={{ fontWeight: 'bold' }}>Senior Software Engineer</Typography>
+                                <Typography>Full-time - Senior</Typography>
+                              </Box>
+                            </Box>
+                            <Typography>
+                              A month ago
+                            </Typography>
+                          </Box>
+                        </Card>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Card>
+                <Card sx={{ mb: 3, backgroundColor: 'rgb(34, 43, 69)', boxShadow: 3 }}>
+                  <Typography variant='body2' sx={{ color: '#fff', mb: 1 }}>Posted this month</Typography>
+                  <Grid container spacing={2}>
+                    {[...new Array(15)].map(dt => (
                       <Grid item xs={12}>
                         <Card sx={{ p: 2 }} onClick={() => navigate('/job-details')}>
                           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
