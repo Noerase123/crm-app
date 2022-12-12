@@ -61,9 +61,9 @@ const CustomDrawer:React.FC<IProp> = ({ children }) => {
                 navigate: () => {},
                 children: [
                   {
-                    label: 'Chat',
-                    to: '/employees',
-                    navigate: () => {},
+                    label: 'Email List',
+                    to: '/dashboard/employees',
+                    navigate: () => {}
                   },
                   {
                     label: 'Clients',

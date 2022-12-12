@@ -34,7 +34,7 @@ const PostJob:React.FC<any> = () => {
     'companyName',
     'email',
     'jobUrl',
-    'description'
+    // 'description'
   ])
 
   const isReadySubmit = (validation: any) => isForSubmit(validation)
