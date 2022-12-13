@@ -37,6 +37,14 @@
   }
 }
 
+#mobile-menu {
+  display: none;
+}
+
+#filterIconJobs {
+  display: none;
+}
+
 @media only screen and (max-width: 899px) {
   #filterSearch {
     display: none;
@@ -44,10 +52,9 @@
   #btnReferral {
     display: none;
   }
-}
-
-#mobile-menu {
-  display: none;
+  #filterIconJobs {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 460px) {

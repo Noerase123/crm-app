@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import LandingAppBar from '../components/LandingAppBar'
 import {
-  Box, Container, Grid, Card, Input, Button,
-  Typography, FormControl, InputLabel, Select, MenuItem
+  Box, Container, Grid, Card, Input, IconButton, Typography
 } from '@mui/material'
 import Footer from '../components/Footer';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import FilterJob from '../components/FilterJob';
 
 const LandingJobs:React.FC<any> = () => {
   const navigate = useNavigate()
+  const [openFilter, setOpenFilter] = useState(false)
   return (
     <LandingAppBar currentPage='jobs'>
       <>
@@ -17,100 +19,37 @@ const LandingJobs:React.FC<any> = () => {
           <Container sx={{ py: 8 }}>
             <Grid container spacing={3}>
               <Grid id='filterSearch' item xs={12} md={4} lg={3}>
-                <Card sx={{ p: 2, color: '#000', backgroundColor: '#fff', boxShadow: 3 }}>
-                  <Typography>Filter your search</Typography>
-                  <Box sx={{ my: 2 }}>
-                    <FormControl size='small' fullWidth>
-                      <InputLabel>Job Type</InputLabel>
-                      <Select
-                        value={null}
-                        label="Job Type"
-                        onChange={() => console.log('hello world')}
-                      >
-                        <MenuItem value={10}>By Contract</MenuItem>
-                        <MenuItem value={10}>Part-Time</MenuItem>
-                        <MenuItem value={20}>Full-Time</MenuItem>
-                        <MenuItem value={30}>Internship</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Box>
-                  <Box sx={{ my: 2 }}>
-                    <FormControl size='small' fullWidth>
-                      <InputLabel>Experience</InputLabel>
-                      <Select
-                        value={null}
-                        label="Experience"
-                        onChange={() => console.log('hello world')}
-                      >
-                        <MenuItem value={10}>None</MenuItem>
-                        <MenuItem value={10}>Junior (1 - 3 yrs)</MenuItem>
-                        <MenuItem value={20}>Medior (3 - 6 yrs)</MenuItem>
-                        <MenuItem value={30}>Senior (5 - 10 yrs)</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Box>
-                  <Box sx={{ my: 2 }}>
-                    <FormControl size='small' fullWidth>
-                      <InputLabel>Technologies</InputLabel>
-                      <Select
-                        value={null}
-                        label="Experience"
-                        onChange={() => console.log('hello world')}
-                      >
-                        <MenuItem value={10}>None</MenuItem>
-                        {[
-                          'ReactJS',
-                          'Angular',
-                          'Vue.js',
-                          'Node.js',
-                          'Javascript',
-                          'Typescript',
-                          'Svetle',
-                          'Java',
-                          'Kotlin',
-                          'PHP',
-                          'Bash',
-                          'Swift',
-                          'Python',
-                          'Ruby',
-                          'C#',
-                          'C++',
-                          'Objective-C',
-                          'Rust',
-                          'Flutter',
-                          'Dart'
-                        ].map((dt, i) => (
-                          <MenuItem key={i} value={10}>{dt}</MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </Box>
-                  <Box sx={{ my: 2 }}>
-                    <Button variant='contained' fullWidth>
-                      search
-                    </Button>
-                  </Box>
-                </Card>
+                <FilterJob />
               </Grid>
               <Grid item xs={12} md={8} lg={9}>
-                <Box sx={{
+                <Box sx={{ 
                   position: 'sticky',
                   top: 0,
                   left: 0,
-                  right: 0,
-                  display: 'flex',
-                  justifyContent: 'start',
-                  alignItems: 'center',
-                  backgroundColor: 'rgb(24, 30, 48)',
-                  p: 1,
-                  boxShadow: 3,
-                  mb: 3
+                  right: 0
                 }}>
-                  <SearchOutlinedIcon />
-                  <Input size='small' type='text' placeholder='Search by job keywords, category, location' style={{ color: '#fff', border: 'none', padding: 10, backgroundColor: 'rgb(24, 30, 48)', width: '100%'}} />
+                  <Box sx={{
+                    zIndex: 1,
+                    display: 'flex',
+                    justifyContent: 'start',
+                    alignItems: 'center',
+                    backgroundColor: 'rgb(24, 30, 48)',
+                    p: 1,
+                    boxShadow: 3,
+                    mb: 3
+                  }}>
+                    <IconButton id='filterIconJobs' onClick={() => setOpenFilter(!openFilter)}>
+                      <FilterAltIcon sx={{ color: '#fff' }} />
+                    </IconButton>
+                    <SearchOutlinedIcon />
+                    <Input size='small' type='text' placeholder='Search by job keywords, category, location' style={{ color: '#fff', border: 'none', padding: 10, backgroundColor: 'rgb(24, 30, 48)', width: '100%'}} />
+                  </Box>
+                  {openFilter && (
+                    <FilterJob />
+                  )}
                 </Box>
                 <Card sx={{ mb: 3, backgroundColor: 'rgb(34, 43, 69)', boxShadow: 3 }}>
-                  <Typography variant='body2' sx={{ color: '#fff', mb: 1, position: 'sticky', top: 0, left: 0, right: 0 }}>Recently Added</Typography>
+                  <Typography variant='body2' sx={{ color: '#fff', mb: 1 }}>Recently Added</Typography>
                   <Grid container spacing={2}>
                     {[...new Array(3)].map(dt => (
                       <Grid item xs={12}>
