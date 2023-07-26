@@ -21,7 +21,7 @@ import JobList from '../components/JobList';
 
 import Footer from '../components/Footer';
 
-const Content:React.FC = () => {
+const Content: React.FC = () => {
   const navigate = useNavigate()
 
   const alertWarning = () => window.alert('Unavailable at the moment')
@@ -39,7 +39,7 @@ const Content:React.FC = () => {
                       Find the world's best remote job
                     </Typography>
                     <Typography sx={{ lineHeight: 1.6, my: 2 }}>
-                      Productivity tools can either help you or get in the way. 
+                      Productivity tools can either help you or get in the way.
                       AdrisTech aims to remove all barriers between you and just getting stuff done.
                     </Typography>
                     <Box sx={{
@@ -94,7 +94,7 @@ const Content:React.FC = () => {
                       p: 1
                     }}>
                       <SearchOutlinedIcon />
-                      <Input size='small' type='text' style={{ color: '#fff', border: 'none', padding: 10, backgroundColor: 'rgb(24, 30, 48)', width: '100%'}} />
+                      <Input size='small' type='text' style={{ color: '#fff', border: 'none', padding: 10, backgroundColor: 'rgb(24, 30, 48)', width: '100%' }} />
                     </Box>
                   </Box>
                 </Grid>
@@ -113,17 +113,17 @@ const Content:React.FC = () => {
               </Grid>
             </Container>
           </Box>
-          {/* <Box sx={{
-            backgroundColor: 'rgb(34, 43, 69)',
-            width: '100%',
-            height: 150,
-            borderRadius: 2000,
-            mt: -10
-          }} /> */}
-          <img
-            src={require('../assets/curve.svg').default}
-            alt='waves'
-          />
+          {/* <Box sx={{ */}
+          {/*   backgroundColor: 'rgb(34, 43, 69)', */}
+          {/*   width: '100%', */}
+          {/*   height: 150, */}
+          {/*   borderRadius: 2000, */}
+          {/*   mt: -10 */}
+          {/* }} /> */}
+          {/* <img */}
+          {/*   src={require('../assets/curve.svg').default} */}
+          {/*   alt='waves' */}
+          {/* /> */}
           <Grid container>
             <Grid item xs={12}>
               <Box sx={{
