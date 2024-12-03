@@ -2,6 +2,9 @@
 
 https://crm-app-sigma.vercel.app/
 
+![crm-app-vercel-demo](https://github.com/user-attachments/assets/3f4d4026-1b92-4630-a10a-b1156de9caf6)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
